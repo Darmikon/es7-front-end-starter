@@ -1,5 +1,5 @@
 {
-  "name": "ES7 Front End Boilerplate",
+  "name": "es7-front-end-boilerplate",
   "version": "1.0.0",
   "description": "Webpack 2 + ES next",
   "main": "index.js",
