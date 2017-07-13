@@ -23,7 +23,25 @@ module.exports = webpackMerge(webpackCommon, {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        include: [
+          /\.scss$/
+        ],
+        exclude: [
+          /\.mod\.scss$/
+        ],
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader?minimize&sourceMap&importLoaders=2',
+            'postcss-loader',
+            'sass-loader?outputStyle=expanded&sourceMap&sourceMapContents'
+          ]
+        })
+      },
+      {
+        include: [
+          /\.mod\.scss$/
+        ],
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [

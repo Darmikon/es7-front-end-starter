@@ -20,7 +20,33 @@ module.exports = webpackMerge(webpackCommon, {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        include: [
+          /\.scss$/
+        ],
+        exclude: [
+          /\.mod\.scss$/
+        ],
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              outputStyle: 'expanded',
+              sourceMap: true,
+              sourceMapContents: true
+            }
+          }
+        ]
+      },
+      {
+        include: [
+          /\.mod\.scss$/
+        ],
         use: [
           {
             loader: 'style-loader'
